@@ -180,4 +180,4 @@ If you have any questions or run into issues:
 
 ---
 
-**Made with ❤️ for better lunch ordering experiences**
+**Made for better lunch ordering experiences**
