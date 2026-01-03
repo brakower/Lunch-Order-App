@@ -155,7 +155,7 @@ function OrderPageInner() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 safe-area">
       <main className="max-w-5xl mx-auto p-4 sm:p-6">
         {/* Header */}
         <header className="sticky top-0 z-40 mb-6">
@@ -171,7 +171,7 @@ function OrderPageInner() {
                     Review your item and add an optional note for Tone.
                   </p>
                 </div>
-                <div className="shrink-0">
+                <div className="shrink-0 max-w-full overflow-x-auto">
                   <TopNav />
                 </div>
               </div>
@@ -319,7 +319,7 @@ export default function OrderPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-slate-50">
+        <div className="min-h-screen bg-slate-50 safe-area">
           <main className="max-w-5xl mx-auto p-4 sm:p-6">
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <p className="text-sm text-slate-600">Loading order…</p>

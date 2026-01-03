@@ -95,7 +95,7 @@ function MenuPageInner() {
                   </p>
                 </div>
 
-                <div className="shrink-0">
+                <div className="shrink-0 max-w-full overflow-x-auto">
                   <TopNav />
                 </div>
               </div>
@@ -191,7 +191,7 @@ export default function MenuPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-slate-50">
+        <div className="min-h-screen bg-slate-50 safe-area">
           <main className="max-w-5xl mx-auto p-4 sm:p-6">
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <p className="text-sm text-slate-600">Loading order…</p>

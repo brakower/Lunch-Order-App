@@ -183,7 +183,7 @@ export default function OrdersPage() {
   );
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 safe-area">
       <main className="max-w-6xl mx-auto p-4 sm:p-6">
         {/* Header */}
         <header className="sticky top-0 z-40 mb-6">
@@ -199,7 +199,7 @@ export default function OrdersPage() {
                     Track your orders as they move from queued → in progress → ready.
                   </p>
                 </div>
-                <div className="shrink-0">
+                <div className="shrink-0 max-w-full overflow-x-auto">
                   <TopNav />
                 </div>
               </div>

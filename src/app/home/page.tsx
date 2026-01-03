@@ -6,7 +6,7 @@ export default function HomePage() {
   const router = useRouter();
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6">
+    <main className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6 safe-area">
       <h1 className="text-4xl font-bold mb-8 text-gray-800">
         Welcome to Beta Lunch
       </h1>
