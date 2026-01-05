@@ -17,3 +17,17 @@ export type Profile = {
   full_name: string;
   s_admin?: boolean;
 }
+
+export type ByStatus = {
+  queued: Order[];
+  inProgress: Order[];
+  ready: Order[];
+};
+
+export type KitchenViewProps = {
+  byStatus: ByStatus;
+  currentUserId: string | null;
+  isAdmin: boolean;
+  updateStatus: (order_id: string, newStatus: ByStatus) => Promise<void>;
+  deleteOrder: (order_id: string) => Promise<void>;
+};

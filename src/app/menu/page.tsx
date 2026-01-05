@@ -65,7 +65,7 @@ function MenuPageInner() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-50">
+      <div className="min-h-screen bg-slate-50 safe-area pb-20 sm:pb-0">
         <main className="max-w-5xl mx-auto p-4 sm:p-6">
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <p className="text-slate-600">Loading...</p>
@@ -76,17 +76,17 @@ function MenuPageInner() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 safe-area pb-20 sm:pb-0">
       <main className="max-w-5xl mx-auto p-4 sm:p-6">
         {/* Header / App Shell */}
-        <header className="sticky top-0 z-40 mb-6">
+        <header className="sticky top-0 z-40 mb-4">
           <div className="rounded-2xl border border-slate-200 bg-white/85 backdrop-blur shadow-sm">
-            {/* Fun accent bar */}
+            {/* Accent bar */}
             <div className="h-1 w-full rounded-t-2xl bg-gradient-to-r from-blue-600 to-cyan-500" />
 
             <div className="p-4 sm:p-5">
               <div className="flex items-start justify-between gap-4">
-                <div>
+                <div className="min-w-0">
                   <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
                     🍔 Menu
                   </h1>
@@ -95,40 +95,44 @@ function MenuPageInner() {
                   </p>
                 </div>
 
-                <div className="shrink-0 max-w-full overflow-x-auto">
+                {/* Desktop only nav (mobile uses BottomNav) */}
+                <div className="hidden sm:block shrink-0 max-w-full overflow-x-auto">
                   <TopNav />
                 </div>
-              </div>
-
-              {/* Tabs */}
-              <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
-                {menuItems.map(section => {
-                  const count = section.items.length;
-                  const label = `${section.category} (${count})`;
-                  const active = activeCategory === section.category;
-
-                  return (
-                    <button
-                      key={section.category}
-                      onClick={() => setActiveCategory(section.category)}
-                      className={`px-4 py-2 rounded-full whitespace-nowrap text-sm font-semibold transition ${
-                        active
-                          ? "bg-blue-600 text-white shadow-sm"
-                          : "bg-white text-slate-700 border border-slate-200 hover:bg-slate-50"
-                      }`}
-                    >
-                      {label}
-                    </button>
-                  );
-                })}
               </div>
             </div>
           </div>
         </header>
 
+        {/* Tabs moved OUTSIDE header (matches Kitchen mobile pattern) */}
+        <div className="mb-6">
+          <div className="flex gap-2 overflow-x-auto pb-1">
+            {menuItems.map(section => {
+              const count = section.items.length;
+              const label = `${section.category} (${count})`;
+              const active = activeCategory === section.category;
+
+              return (
+                <button
+                  key={section.category}
+                  type="button"
+                  onClick={() => setActiveCategory(section.category)}
+                  className={`px-4 py-2 rounded-full whitespace-nowrap text-sm font-semibold border transition ${
+                    active
+                      ? "bg-blue-600 text-white border-blue-600 shadow-sm"
+                      : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50"
+                  }`}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Content */}
         <section className="space-y-4">
-          <div className="flex items-end justify-between">
+          <div className="flex items-end justify-between gap-3">
             <h2 className="text-xl font-bold text-slate-900">{activeCategory}</h2>
 
             {!canOrder ? (
@@ -137,7 +141,8 @@ function MenuPageInner() {
               </span>
             ) : (
               <span className="text-xs text-slate-500">
-                Ordering as <span className="font-semibold text-slate-700">{profile?.full_name}</span>
+                Ordering as{" "}
+                <span className="font-semibold text-slate-700">{profile?.full_name}</span>
               </span>
             )}
           </div>
@@ -191,16 +196,16 @@ export default function MenuPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-slate-50 safe-area">
+        <div className="min-h-screen bg-slate-50 safe-area pb-20 sm:pb-0">
           <main className="max-w-5xl mx-auto p-4 sm:p-6">
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="text-sm text-slate-600">Loading order…</p>
+              <p className="text-sm text-slate-600">Loading…</p>
             </div>
           </main>
         </div>
       }
     >
-      <MenuPageInner/>
+      <MenuPageInner />
     </Suspense>
   );
 }

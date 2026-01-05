@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SupabaseProvider from "./supabase-provider";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import BottomNav from "./components/BottomNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,6 +50,7 @@ export default function RootLayout({
         <SupabaseProvider>
           {children}
         </SupabaseProvider>
+        <BottomNav />
       </body>
     </html>
   );
