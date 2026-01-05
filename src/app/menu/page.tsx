@@ -63,6 +63,10 @@ function MenuPageInner() {
     );
   };
 
+  const goToLoginScreen = () => {
+    router.push("/")
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen bg-slate-50 safe-area pb-20 sm:pb-0">
@@ -137,7 +141,7 @@ function MenuPageInner() {
 
             {!canOrder ? (
               <span className="text-xs text-slate-500">
-                {user ? "Loading profile..." : "Log in to order"}
+                {user ? "Loading profile..." : <button type="button" onClick={() => goToLoginScreen()}>Log in to order</button>}
               </span>
             ) : (
               <span className="text-xs text-slate-500">
