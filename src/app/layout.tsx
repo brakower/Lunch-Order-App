@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SupabaseProvider from "./supabase-provider";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import BottomNav from "./components/BottomNav";
+import MobileBottomNavWrapper from "./components/MobileBottomNavWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,12 +45,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased pb-[var(--bottom-nav-height)]`}
       >
         <SupabaseProvider>
           {children}
+          <MobileBottomNavWrapper />
         </SupabaseProvider>
-        <BottomNav />
       </body>
     </html>
   );

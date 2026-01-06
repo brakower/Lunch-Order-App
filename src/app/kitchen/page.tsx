@@ -368,6 +368,7 @@ export default function KitchenPage() {
       console.error(error.message);
       // Optional: refetch or revert optimistic update if you want
     }
+
   };
 
   const deleteOrder = async (order_id: string) => {
@@ -423,7 +424,7 @@ export default function KitchenPage() {
                     Track every order in real time. Yellow border = your order.
                   </p>
                 </div>
-                <div className="hidden sm: block shrink-0 max-w-full overflow-x-auto">
+                <div className="hidden sm:block shrink-0 max-w-full overflow-x-auto">
                   <TopNav />
                 </div>
               </div>

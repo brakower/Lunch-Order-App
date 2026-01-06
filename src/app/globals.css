@@ -3,6 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --bottom-nav-height: 65px;
+}
+
+/* iOS safe-area support */
+@supports (padding: env(safe-area-inset-bottom)) {
+  :root {
+    --bottom-nav-height: calc(65px + env(safe-area-inset-bottom));
+  }
 }
 
 @theme inline {
