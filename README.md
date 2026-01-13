@@ -1,6 +1,8 @@
 # 🍽️ Lunch Order App
 
-A modern, user-friendly web application for managing lunch orders built with Next.js, React, and TypeScript. Streamline your team's lunch ordering process with this efficient and scalable solution. This is hosted online here: https://lunch-order-app-ten.vercel.app/
+A modern, user-friendly web application for managing lunch orders built with Next.js, React, and TypeScript. Streamline your team's lunch ordering process with this efficient and scalable solution. 
+
+Can be found online here: https://lunch-order-app-ten.vercel.app/
 
 ## 📋 Table of Contents
 
