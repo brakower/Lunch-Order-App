@@ -8,6 +8,7 @@ import { useUser } from "@supabase/auth-helpers-react";
 import { menuItems } from "../constants/menuItems";
 import { MenuItem, Profile } from "../constants/types";
 import TopNav from "../components/TopNav";
+import NotificationsButton from "../components/NotificationsButton";
 
 function MenuPageInner() {
   const router = useRouter();
@@ -97,8 +98,9 @@ function MenuPageInner() {
                   <p className="text-sm text-slate-600 mt-1">
                     Pick something tasty — add a note on the next screen.
                   </p>
-                </div>
-
+                </div>        
+                
+                <NotificationsButton />
                 {/* Desktop only nav (mobile uses BottomNav) */}
                 <div className="hidden sm:block shrink-0 max-w-full overflow-x-auto">
                   <TopNav />
@@ -107,6 +109,7 @@ function MenuPageInner() {
             </div>
           </div>
         </header>
+
 
         {/* Tabs moved OUTSIDE header (matches Kitchen mobile pattern) */}
         <div className="mb-6">
